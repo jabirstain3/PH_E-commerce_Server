@@ -28,7 +28,7 @@ const productSchema = new Schema <Tproduct> (
     {
         name: {
             type: String,
-            unique:true,
+            unique: true,
             required: true,
             trim: true,
             maxlength: [30, ""]
