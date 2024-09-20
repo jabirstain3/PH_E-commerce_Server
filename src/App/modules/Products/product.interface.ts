@@ -17,7 +17,7 @@ export type Tproduct = {
     price: number,
     category: string,
     tags: string[],
-    variants: Tvariant,
+    variants: Tvariant[],
     inventory: Tinventory
 }
 
