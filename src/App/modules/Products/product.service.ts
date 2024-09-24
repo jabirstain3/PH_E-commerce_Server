@@ -2,12 +2,12 @@ import { Tproduct } from "./product.interface";
 import { productModel } from "./product.model";
 
 const registerProductOnDB = async (product: Tproduct) => {
-    const responce = productModel.create(product);
+    const responce = await productModel.create(product);
     return responce;
 }
 
 const getAllProductListFromDB = async () => {
-    const responce = productModel.find();
+    const responce = await productModel.find();
     return responce;
 }
 
@@ -19,13 +19,12 @@ const getAllSearchedProductFromDB = async (Keyword: string ) => {
             { tags: { $in: [new RegExp(Keyword, 'i')] } }
         ]
     };
-      // Find products based on the query
     const responce = await productModel.find(query);
     return responce;
 }
 
 const getSingleProductFromDB = async (id: string ) => {
-    const responce = productModel.aggregate([{$match: {P_id: {$eq: id}}}]);
+    const responce = await productModel.aggregate([{$match: {P_id: {$eq: id}}}]);
     return responce;
 }
 

@@ -44,9 +44,10 @@ const getAllProductList = async (req: Request, res: Response) => {
         })
     }
 }
+
 const getAllProductsByKeyword = async (req: Request, res: Response) => {
     try {
-        const  Keyword  = req.query.Keyword as string ;
+        const  Keyword  = req.query.searchTerm as string ;
 
         if (!Keyword) {
             return res.status(400).json( {
@@ -98,7 +99,8 @@ const updateProductById = async (req: Request, res: Response) => {
     try {
         const { productId } = req.params;
         const { updatedData } = req.body;
-        const result = await ProductServices.updateProductOnDB(productId, updatedData) ;
+        const data = productValidatonSchema.parse(updatedData)
+        const result = await ProductServices.updateProductOnDB(productId, data) ;
         res.status(200).json( {
             success: true,
             message: 'Prodect updated successfully!',
