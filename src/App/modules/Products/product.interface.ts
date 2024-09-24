@@ -14,6 +14,7 @@ export type Tproduct = {
     name: string,
     P_id: string,
     description: string,
+    buyingPrice: number,
     price: number,
     category: string,
     tags: string[],

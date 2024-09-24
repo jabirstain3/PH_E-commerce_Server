@@ -42,6 +42,10 @@ const productSchema = new Schema <Tproduct> (
             type: String,
             required: true,
         },
+        buyingPrice: {
+            type: Number,
+            required: true,
+        },
         price: {
             type: Number,
             required: true,

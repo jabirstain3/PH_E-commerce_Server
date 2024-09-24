@@ -21,6 +21,7 @@ const productValidatonSchema = z.object({
         .trim(),
     P_id: z.string().min(1, "P_id is required"),
     description: z.string().min(1, "Description is required"),
+    buyingPrice: z.number().positive("Price must be a positive number"),
     price: z.number().positive("Price must be a positive number"),
     category: z.string().min(1, "Category is required"),
     tags: z.array(z.string()).nonempty("Tags are required"),
