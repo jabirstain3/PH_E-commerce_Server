@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 // Application router
-app.use('/api/Products', ProductRouter)
-app.use('/api/Orders', orderRouter)
+app.use('/api/products', ProductRouter)
+app.use('/api/orders', orderRouter)
 
 app.get('/', (req: Request, res: Response ) => {
     res.send('Product server is running perfectly')

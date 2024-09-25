@@ -52,7 +52,7 @@ const getAllProductsByKeyword = async (req: Request, res: Response) => {
         if (!Keyword) {
             return res.status(400).json( {
                 success: false,
-                message: 'Keyword is required for searching.' ,
+                message: 'searchTerm is required for searching.' ,
                 data: null,
             });
         }
@@ -99,8 +99,10 @@ const updateProductById = async (req: Request, res: Response) => {
     try {
         const { productId } = req.params;
         const { updatedData } = req.body;
+        
         const data = productValidatonSchema.parse(updatedData)
         const result = await ProductServices.updateProductOnDB(productId, data) ;
+
         res.status(200).json( {
             success: true,
             message: 'Prodect updated successfully!',
